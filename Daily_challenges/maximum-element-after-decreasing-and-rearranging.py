@@ -1,0 +1,8 @@
+#Greedy + Sorting problem.
+class Solution(object):
+    def maximumElementAfterDecrementingAndRearranging(self, arr):
+        arr.sort()
+        ans = 1
+        for x in arr[1:]:
+            ans = min(x, ans + 1)
+        return ans
