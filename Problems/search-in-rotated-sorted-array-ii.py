@@ -13,19 +13,15 @@ class Solution(object):
             if nums[mid] == target:
                 return True
 
-            # Handle duplicates
             if nums[left] == nums[mid] == nums[right]:
                 left += 1
                 right -= 1
-
-            # Left half is sorted
+  
             elif nums[left] <= nums[mid]:
                 if nums[left] <= target < nums[mid]:
                     right = mid - 1
                 else:
                     left = mid + 1
-
-            # Right half is sorted
             else:
                 if nums[mid] < target <= nums[right]:
                     left = mid + 1
