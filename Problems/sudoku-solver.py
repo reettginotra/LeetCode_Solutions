@@ -4,7 +4,7 @@ class Solution:
         cols = [set() for _ in range(9)]
         boxes = [set() for _ in range(9)]
 
-        # Fill sets with existing numbers
+       
         for i in range(9):
             for j in range(9):
                 if board[i][j] != ".":
