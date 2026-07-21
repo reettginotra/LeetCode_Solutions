@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// LeetCode solution starts from here
+class Solution {
+public:
+    int maxActiveSectionsAfterTrade(string s) {
+        int active = count(s.begin(), s.end(), '1');
+
+        string t = "1" + s + "1";
+        vector<pair<char,int>> runs;
+
+        for (char c : t) {
+            if (runs.empty() || runs.back().first != c)
+                runs.push_back({c, 1});
+            else
+                runs.back().second++;
+        }
+
+        int ans = active;
+
+        for (int i = 1; i + 1 < (int)runs.size(); i++) {
+            if (runs[i].first == '1' &&
+                runs[i - 1].first == '0' &&
+                runs[i + 1].first == '0')
+                ans = max(ans, active + runs[i - 1].second + runs[i + 1].second);
+        }
+
+        return ans;
+    }
+};
