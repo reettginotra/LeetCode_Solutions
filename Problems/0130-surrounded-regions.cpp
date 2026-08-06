@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// LeetCode solution starts from here
+class Solution {
+public:
+    void dfs(vector<vector<char>>& board, int r, int c) {
+        int rows = board.size(), cols = board[0].size();
+
+        if (r < 0 || r >= rows || c < 0 || c >= cols || board[r][c] != 'O')
+            return;
+
+        board[r][c] = '#';
+
+        dfs(board, r + 1, c);
+        dfs(board, r - 1, c);
+        dfs(board, r, c + 1);
+        dfs(board, r, c - 1);
+    }
+
+    void solve(vector<vector<char>>& board) {
+        if (board.empty() || board[0].empty())
+            return;
+
+        int rows = board.size(), cols = board[0].size();
+
+        for (int i = 0; i < rows; i++) {
+            dfs(board, i, 0);
+            dfs(board, i, cols - 1);
+        }
+
+        for (int j = 0; j < cols; j++) {
+            dfs(board, 0, j);
+            dfs(board, rows - 1, j);
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (board[i][j] == 'O')
+                    board[i][j] = 'X';
+                else if (board[i][j] == '#')
+                    board[i][j] = 'O';
+            }
+        }
+    }
+};
