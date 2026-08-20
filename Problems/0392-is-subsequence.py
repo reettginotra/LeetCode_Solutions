@@ -1,14 +1,17 @@
-class Solution(object):
-    def isSubsequence(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: bool
-        """
-        i = 0
+#include <bits/stdc++.h>
+using namespace std;
 
-        for c in t:
-            if i < len(s) and s[i] == c:
-                i += 1
+// LeetCode solution starts from here
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int i = 0;
 
-        return i == len(s)
+        for (char c : t) {
+            if (i < s.size() && s[i] == c)
+                i++;
+        }
+
+        return i == s.size();
+    }
+};
