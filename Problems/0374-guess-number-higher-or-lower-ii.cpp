@@ -1,6 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int pick = 6;
+
+int guess(int num) {
+    if (num == pick)
+        return 0;
+    else if (num > pick)
+        return -1;
+    return 1;
+}
 // LeetCode solution starts from here
 class Solution {
 public:
