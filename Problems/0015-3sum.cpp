@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// LeetCode solution starts from hereclass Solution 
+// LeetCode solution starts from hereclass Solution
+class solution { 
 public:
     vector<vector<int>> threeSum(vector<int> &nums) {
         sort(begin(nums), end(nums));
